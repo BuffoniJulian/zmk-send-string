@@ -19,8 +19,6 @@
     };
 };
 
-&xiao_serial { status = "disabled"; };
-
 &adc {
     status = "okay";
 };

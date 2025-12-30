@@ -36,6 +36,6 @@
     };
 };
 
-&matrix_transform0 {
+&default_transform {
     col-offset = <10>;
 };

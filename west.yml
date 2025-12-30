@@ -30,11 +30,11 @@ manifest:
           - edtt
           - trusted-firmware-m
     - name: nanopb
-      revision: 8c60555d6277a0360c876bd85d491fc4fb0cd74a
+      revision: 65cbefb4695bc7af1cb733ced99618afb3586b20
       path: modules/lib/nanopb
-      remote: zmkfirmware
+      remote: zephyrproject-rtos
     - name: zmk-studio-messages
-      revision: 6cb4c283e76209d59c45fbcb218800cd19e9339d
+      revision: a79267a9661241a6603b6da3d2b3f71e8023a9d9
       path: modules/msgs/zmk-studio-messages
       remote: zmkfirmware
   self:

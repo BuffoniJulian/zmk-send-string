@@ -1,4 +1,3 @@
-#include <layouts/common/tkl/position_map.dtsi>
 #include <physical_layouts.dtsi>
 
 / {

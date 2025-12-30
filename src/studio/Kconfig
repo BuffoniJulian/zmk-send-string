@@ -35,7 +35,6 @@ menuconfig ZMK_STUDIO_RPC
     # These two save stack size
     imply NANOPB_NO_ERRMSG
     imply NANOPB_WITHOUT_64BIT
-    imply NANOPB_NO_ENCODE_SIZE_CHECK
     imply ZMK_STUDIO_LOCKING if !ARCH_POSIX
     select CBPRINTF_LIBC_SUBSTS if ARCH_POSIX
     select SETTINGS
@@ -51,13 +50,11 @@ if ZMK_STUDIO_RPC
 
 menu "Transports"
 
-DT_CHOSEN_ZMK_STUDIO_RPC_UART := zmk,studio-rpc-uart
-
 config ZMK_STUDIO_TRANSPORT_UART
     bool "Serial"
     select SERIAL
     select RING_BUFFER
-    default y if $(dt_chosen_enabled,$(DT_CHOSEN_ZMK_STUDIO_RPC_UART))
+    default y if ZMK_USB || ARCH_POSIX
 
 config ZMK_STUDIO_TRANSPORT_UART_RX_STACK_SIZE
     int "RX Stack Size"

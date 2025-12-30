@@ -168,8 +168,6 @@ static int kscan_charlieplex_set_all_outputs(const struct device *dev, const int
     return 0;
 }
 
-#if IS_ENABLED(CONFIG_PM_DEVICE)
-
 static int kscan_charlieplex_disconnect_all(const struct device *dev) {
     const struct kscan_charlieplex_config *config = dev->config;
 
@@ -184,8 +182,6 @@ static int kscan_charlieplex_disconnect_all(const struct device *dev) {
 
     return 0;
 }
-
-#endif
 
 static int kscan_charlieplex_interrupt_configure(const struct device *dev,
                                                  const gpio_flags_t flags) {
@@ -449,7 +445,7 @@ static const struct kscan_driver_api kscan_charlieplex_api = {
         .charlieplex_state = kscan_charlieplex_state_##n,                                          \
     };                                                                                             \
                                                                                                    \
-    static const struct kscan_charlieplex_config kscan_charlieplex_config_##n = {                  \
+    static struct kscan_charlieplex_config kscan_charlieplex_config_##n = {                        \
         .cells = KSCAN_GPIO_LIST(kscan_charlieplex_cells_##n),                                     \
         .debounce_config =                                                                         \
             {                                                                                      \
